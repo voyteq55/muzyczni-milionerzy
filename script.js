@@ -25,12 +25,6 @@ var bazaPytanTrudne = [
 
 class Pytanie {
     constructor(poziomTrudnosci) {
-//        this.pytanie = "Ile diamentów potrzeba, aby wytworzyć pełną diamentową zbroję?";
-//        this.odpowiedz1 = "24"
-//        this.odpowiedz2 = "25"
-//        this.odpowiedz3 = "26"
-//        this.odpowiedz4 = "27"
-//        this.popOdpowiedz = 1;
         this.poziomTrudnosci = poziomTrudnosci;
         var bazaPytanAktualna;
         if (poziomTrudnosci==1) { //latwe pytania
@@ -50,7 +44,6 @@ class Pytanie {
         var liczbaPytanwSumie;
 
         liczbaPytanwSumie = bazaPytanAktualna.length;
-//        console.log(liczbaPytanwSumie);
         this.id = Math.floor(Math.random() * liczbaPytanwSumie); //generuje losową liczbę od 0 do (tyle ile jest pytań - 1), to jest id pytania, unikalne dla kazdego pytania wsrod pytan o tej samym poziomie trudnosci
 
         this.pytanie = bazaPytanAktualna[this.id][0];
@@ -92,7 +85,6 @@ function start() {
 
 //odpala sie przy rozpoczeciu gry ponownie, po przegranej rozgrywce
 function restartGame() {
-//    alert("Oh shit, here we go again");
 
     //resetowanie do poczatkowych wartosci zmiennych
     pytania = [];
@@ -130,8 +122,6 @@ function restartGame() {
     updateNapisPytanieZaX();
 
 }
-
-//var pytanie1 = new Pytanie(69);
 
 var pytania = [];
 
@@ -175,10 +165,6 @@ function wygenerujPytanie() {
         else if((nrPytania>=9)&&(nrPytania<=12)) {
             pytaniePotencjalne = new Pytanie(3); //wylosuj pytanie randomowe trudne
         }
-        //to nie powinno sie zdarzyc
-        else {
-            alert("no cos sie zjebalo");
-        }
     } while(juzByloPytanie(pytaniePotencjalne));
     //jesli pytanie juz sie pojawilo to wylosuj jeszcze raz, az do skutku
 
@@ -215,11 +201,9 @@ function printPytanie() {
 
 function updateProgizBoku() {
     var progi = []; //tworzymy arraya ze wszystkimi divami ktore maja te progi z boku zeby zmieniac ich zawartosc
-//    var i;
     for(i=1; i<=12; i++) {
         progi[i] = document.getElementById("prog"+i); //tutaj lapiemy te divy po kolei
     }
-//    progi[5].innerHTML = "nowl";
     progi[nrPytania].classList.add("aktualny"); //numer pytania zmien wyglad na aktualne pytanie
 
 
@@ -284,7 +268,6 @@ function poddajeSie() {
         if (prog!=null) {
             wygrana = prog.innerHTML;
         } else {
-            //alert("no siema");
             wygrana = "0 zł";
         }
 
@@ -333,7 +316,6 @@ function klikOdp(num) {
 }
 
 function poprawnaOdpowiedz() {
-//    alert("jest gites");
     if (nrPytania < 12) {
         jestAktualniePolNaPol = false;
         nrPozostalejOdpPoPolNaPol = 0;
@@ -344,7 +326,6 @@ function poprawnaOdpowiedz() {
         updateNapisPytanieZaX();
         naprawPoPolNaPol();
     } else { //wygrana miliona zlociszy
-//        alert("gratki mordo, wygrales talon");
         naprawPoPolNaPol();
 
         var poleNaTekst = document.getElementById("pole-na-tekst");
@@ -364,7 +345,6 @@ function poprawnaOdpowiedz() {
 }
 
 function zlaOdpowiedz() {
-//    alert("oopsie :(")
     naprawPoPolNaPol();
 
     var poleNaTekst = document.getElementById("pole-na-tekst");
@@ -471,7 +451,6 @@ function clickAnimacja(num) {
         }, 6500);
     } else {
         //jesli zla odpowiedz jest wybrana
-        console.log("noeluwina zla odp");
         setTimeout(function() {
 //            box.style.background = "#06065e";
 //            popBox.style.background = "#06065e";
@@ -560,7 +539,6 @@ function telefon(element) {
             //jesli bylo uzyte kolo pol na pol w tym samym pytaniu, to oczywiscie ta zla odpowiedz musi byc tą drugą pozostałą, no bo inaczej nie ma to sensu
 
             var rand = Math.floor(Math.random()*10)+1; //losowa liczba od 1 do 10
-            console.log("rand od 1 do 10: " + rand);
 
             var literkaPopOdp;
             if(nrPoprawnejOdpowiedzi==1) literkaPopOdp="A";
@@ -579,7 +557,6 @@ function telefon(element) {
             if(nrPoprawnejOdpowiedzi==4) {
                 trescPopOdp = pytania[nrPytania-1].odpowiedz4;
             }
-            console.log("trescpopodp: " + trescPopOdp);
 
             //do tej zmiennej jest przypisana tresc losowej zlej odpowiedzi (w przypadku gdy przyjaciel jednak sie pomyli)
             var trescRandZlejOdp;
@@ -595,15 +572,12 @@ function telefon(element) {
             if(nrRandZlejOdpowiedzi==4) {
                 trescRandZlejOdp = pytania[nrPytania-1].odpowiedz4;
             }
-            console.log("tresc zlej odp: " + trescRandZlejOdp);
 
             var wiadomoscDialog;
 
             var tempRand = Math.floor(Math.random()*4)+1;
             //losowa liczba calkowita od 1 do 4 (do określenia czy ma sie pokazac dobra czy zla odpowiedz)
-            console.log("temp rand (od 1 do 4): " + tempRand);
 
-            console.log("poziom trudnosci: " + pytania[nrPytania-1].poziomTrudnosci);
             //latwe pytania
             if(pytania[nrPytania-1].poziomTrudnosci==1) {
                 switch(rand) {
@@ -767,8 +741,6 @@ function publicznosc(element) {
                         bonusPopOdp = 0;
                         break;
                 }
-                console.log("poziom trudnosci: "+pytania[nrPytania-1].poziomTrudnosci);
-                console.log("bonus pop odp: "+ bonusPopOdp);
 
                 if(pytania[nrPytania-1].popOdpowiedz==1) {
                     odp1Procent = bonusPopOdp;
@@ -782,8 +754,6 @@ function publicznosc(element) {
                 else if(pytania[nrPytania-1].popOdpowiedz==4) {
                     odp4Procent = bonusPopOdp;
                 }
-
-                console.log("odp1:"+odp1Procent+"odp2:"+odp2Procent+"odp3:"+odp3Procent+"odp4:"+odp4Procent);
 
                 //wylosuj 4 liczby, aby ich suma dopelnila do tych 100 (wliczajac bonus)
                 var randoms = fourRandomNumbersWithSum(100-bonusPopOdp);
@@ -813,8 +783,6 @@ function publicznosc(element) {
 
                 var tempProcentZlejOdp = Math.random()*(100-bonusPopOdp); //losuj ile % ma miec ta zla odpowiedz, moze miec max (100-bonus)%
 
-                console.log(tempProcentZlejOdp);
-
                 if(nrPozostalejOdpPoPolNaPol==1) {
                     odp1Procent = tempProcentZlejOdp;
                 }
@@ -841,8 +809,6 @@ function publicznosc(element) {
                 else if(pytania[nrPytania-1].popOdpowiedz==4) {
                     odp4Procent = 100 - tempProcentZlejOdp;
                 }
-
-                console.log("odp1:"+odp1Procent+"odp2:"+odp2Procent+"odp3:"+odp3Procent+"odp4:"+odp4Procent);
             }
 
             //zaokraglenie do 2 miejsc po przecinku
@@ -856,7 +822,6 @@ function publicznosc(element) {
             var poleNaTekst = document.getElementById("pole-na-tekst");
             poleNaTekst.innerHTML = wiadomoscDialog;
             //ustaw wiadomosc w divie
-            console.log("odp1:"+odp1Procent+"odp2:"+odp2Procent+"odp3:"+odp3Procent+"odp4:"+odp4Procent);
 
             pokazDialog();
             zuzytaPublicznosc = true;
