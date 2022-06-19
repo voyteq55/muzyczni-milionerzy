@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Muzyczni Milionerzy</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+<!--    <script src="script.js"></script>-->
+
+</head>
+   
+<body>
+    <h1>Muzyczni Milionerzy</h1>
+    
+    <div id="start-button" onclick="beginGame()"><img id="start-button-img" src="imgs/play_icon.png" alt="Start"></div>
+    
+    <!-- ten element jest po to, ze gdy jest sie na laptopie to i pytania i te progi z boku sa jakby razem wysrodkowane-->
+    <div id="wrapper">
+        <main id="main">
+            <div id="pierwsza-czesc-flexbox">
+                <div id="kola-ratunkowe">
+                    <div id="pol-na-pol" class="kolo" onclick="polNaPol(this);">
+                        <img src="imgs/50na50.png" alt="50 na 50">
+                    </div>
+                    <div id="telefon" class="kolo" onclick="telefon(this);">
+                        <img src="imgs/telefondoprzyjaciela.png" alt="Telefon do przyjaciela">
+                    </div>
+                    <div id="publicznosc" class="kolo" onclick="publicznosc(this);">
+                        <img src="imgs/publicznosc.png" alt="Pytanie do publiczności">
+                    </div>
+
+                    <div style="clear: both;"></div>
+
+                </div> 
+
+                <h2 id="pytanie-za-x">Tu ma byc napis za ile jest pytanie</h2>
+
+                <div id="pytanie">
+
+                </div>
+            
+            </div>
+            
+            <div id="odpowiedzi-flexbox">
+
+                <div class="odpowiedz" id="odp1" onclick="klikOdp(1)">
+
+                </div>
+
+                <div class="odpowiedz" id="odp2" onclick="klikOdp(2)">
+
+                </div>
+
+                <div class="odpowiedz" id="odp3" onclick="klikOdp(3)">
+
+                </div>
+
+                <div class="odpowiedz" id="odp4" onclick="klikOdp(4)">
+
+                </div>
+            
+            </div>
+
+
+        </main>
+
+        <div id="ilekasy"> 
+
+            <div id="ilekasy-css"> <!-- ten element jest po to, ze kiedy pojawia sie dialog, te progi sie przyciemniaja (przez zmniejszenie opacity), ale tlo nie staje sie przezroczyste -->
+
+                <div id="strzalka" onclick="slide()">&#9664;</div>
+
+                <div id="prog12" class="prog gwarantowany">1000000 zł</div>
+                <div id="prog11" class="prog">500000 zł</div>
+                <div id="prog10" class="prog">250000 zł</div>
+                <div id="prog9" class="prog">125000 zł</div>
+                <div id="prog8" class="prog">75000 zł</div>
+                <div id="prog7" class="prog gwarantowany">40000 zł</div>
+                <div id="prog6" class="prog">20000 zł</div>
+                <div id="prog5" class="prog">10000 zł</div>
+                <div id="prog4" class="prog">5000 zł</div>
+                <div id="prog3" class="prog">2000 zł</div>
+                <div id="prog2" class="prog gwarantowany">1000 zł</div>
+                <div id="prog1" class="prog aktualny">500 zł</div>
+
+                <button id="poddajesie" class="prog" onclick="wyswietlDialogPoddania();">Poddaję się</button>
+
+            </div>
+
+        </div>
+    
+    </div>
+    
+    <div id="dialog"><span id="pole-na-tekst"></span><br>
+        <div id="powrot-z-dialogu" onclick="zamknijDialog();">Powrót</div>
+    </div>
+    
+    
+    <script src="script.js"></script>
+    
+</body>
+    
+</html>

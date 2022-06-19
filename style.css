@@ -1,0 +1,308 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+/*    background: #18189e;*/
+    background: #06065e;
+    color: white;
+/*    box-sizing: border-box;*/
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+/*
+    width: 100%;
+    height: 100%;
+*/
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1 {
+    font-size: 2rem;
+    border-bottom: 1px solid white;
+    margin: 0;
+    padding: 20px 0;
+}
+
+#start-button {
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 100px);
+    width: 200px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#start-button-img {
+    width: 200px;
+    margin-top: 20px;
+    margin: 0;
+}
+
+#wrapper {
+    transition: opacity 0.5s ease-in-out;
+    /*To jest po to zeby na poczatku nie bylo tego widac */
+    opacity: 0; 
+    visibility: hidden;
+    height: calc(100% - 79px); /* Tu chodzi o to zeby ten wrapper byl dokladnie do dolu ekranu, a ten h1 na gorze ma wlasnie 79px*/
+}
+
+#main {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/*
+main {
+    transition: opacity 0.5s ease-in-out;
+     To jest po to zeby na poczatku nie bylo tego widac 
+    opacity: 0; 
+    visibility: hidden;
+}
+*/
+
+#pierwsza-czesc-flexbox {
+    flex: 0 1 auto;
+}
+
+#odpowiedzi-flexbox {
+    flex: 1 1 auto;
+}
+
+#kola-ratunkowe {
+/*    border-bottom: 1px solid white; */
+}
+
+.kolo {
+    width: 33.33%;
+    float: left;
+}
+
+.kolo img {
+    width: 100%;
+    padding: 10%;
+}
+
+.kolo img:hover {
+    opacity: 0.5;
+}
+
+.kolo.zuzyte img { /* klasa dodana po zuzyciu kola*/
+    opacity: 0.25;
+}
+
+h2 {
+    padding: 0;
+    margin-top: 0;
+    font-size: 1.3333rem;
+}
+
+#pytanie {
+    font-size: 1.2rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5%;
+/*    height: 75px;*/
+/*    line-height: 73px;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+}
+
+.odpowiedz {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /*TEMPORARY SOLUTION - NEED TO USE FLEXBOX 
+    https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space */
+    
+    
+}
+
+/*
+.odpowiedz:hover {
+    opacity: 0.5;
+}
+*/
+
+#ilekasy {
+    position: absolute;
+    top: 79px;
+    left: 100%; /*Fixes it behind the right side of the screen */
+    width: 90%;
+    height: calc(100% - 79px);
+    background: #06062e;
+    border-radius: 50px 0 0 50px;
+    transition: transform 0.7s ease-in-out;
+/*    transform: none; For JS function slide()*/
+}
+
+#ilekasy:hover {
+/*    transform: translate(-100%,0);*/
+}
+
+#ilekasy-css {
+    height: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#strzalka {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: -20px;
+    background: white;
+    height: 50px;
+    width: 20px;
+    border-radius: 5px 0 0 5px;
+    color: black;
+    line-height: 50px;
+    font-size: 1.2rem;
+    transition: opacity 0.5s ease-in-out;
+    /* To jest po to zeby na poczatku nie bylo tego widac */
+    opacity: 0; 
+    visibility: hidden;
+}
+
+.prog {
+    font-size: 1.6rem;
+    font-weight: 700;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 7.142857%;
+    display: flex;
+    color: #b50000;
+    justify-content: center;
+    align-items: center;
+/*    background: #06065e;*/
+    border-radius: 25px;
+}
+
+.aktualny {
+/*    background: #06065e;*/
+    background: white;
+    color: #06065e; 
+    
+}
+
+.osiagniety {
+    color: white;
+}
+
+.gwarantowany {
+    color: #f2c705;
+}
+
+#poddajesie {
+    height: 7.142857%; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #06065e;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    top: 3.571429%;
+    position: relative;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#poddajesie:focus {
+    outline: none;
+    opacity: 0.75;
+}
+
+#poddajesie:hover {
+    opacity: 0.5;
+}
+
+#dialog {
+    font-size: 1.1rem;
+    visibility: hidden;
+    width: 70%;
+/*    height: 200px;*/
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background: #06069e;
+    position: absolute;
+    top: calc(50% - 100px);
+    left: 15%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#powrot-z-dialogu, #poddac-tak, #poddac-nie {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+#powrot-z-dialogu:hover {
+    opacity: 0.5;
+}
+
+#poddac-tak, #poddac-nie {
+    padding: 15px 25px;
+    
+}
+
+#poddac-tak {
+    margin-right: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 4000px) {
+    #wrapper {
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    main {
+        width: 480px;
+        float: left;
+    }
+    #ilekasy {
+        position: static;
+        width: 320px;
+        height: 540px;
+        margin-top: 20px;
+        transition: transform 0.7s ease-in-out;
+        border-radius: 50px;
+        float: left;
+    }
+    #ilekasy:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    #strzalka {
+        display: none;
+    }
+}
