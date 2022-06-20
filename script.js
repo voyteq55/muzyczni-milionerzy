@@ -588,7 +588,7 @@ function telefon(element) {
                     case 5: case 6: case 7:
                         //75% pewnosci
                         if(tempRand==1) {
-                            wiadomoscDialog = 'Wydaje mi się, że "' + trescRandZlejOdp + ' to prawidłowa odpowiedź.';
+                            wiadomoscDialog = 'Wydaje mi się, że "' + trescRandZlejOdp + '" to prawidłowa odpowiedź.';
                         } else {
                             wiadomoscDialog = 'Wydaje mi się, że "' + trescPopOdp + '" to prawidłowa odpowiedź.';
                         }
@@ -619,7 +619,7 @@ function telefon(element) {
                     case 4: case 5:
                         //75% pewnosci
                         if(tempRand==1) {
-                            wiadomoscDialog = 'Wydaje mi się, że "' + trescRandZlejOdp + ' to prawidłowa odpowiedź.';
+                            wiadomoscDialog = 'Wydaje mi się, że "' + trescRandZlejOdp + '" to prawidłowa odpowiedź.';
                         } else {
                             wiadomoscDialog = 'Wydaje mi się, że "' + trescPopOdp + '" to prawidłowa odpowiedź.';
                         }
@@ -648,7 +648,7 @@ function telefon(element) {
                     case 2: case 3:
                         //75% pewnosci
                         if(tempRand==1) {
-                            wiadomoscDialog = 'Wydaje mi się, że "' + trescRandZlejOdp + ' to prawidłowa odpowiedź.';
+                            wiadomoscDialog = 'Wydaje mi się, że "' + trescRandZlejOdp + '" to prawidłowa odpowiedź.';
                         } else {
                             wiadomoscDialog = 'Wydaje mi się, że "' + trescPopOdp + '" to prawidłowa odpowiedź.';
                         }
